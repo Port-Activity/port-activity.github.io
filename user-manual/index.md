@@ -1,6 +1,98 @@
-# User manual
+# Port Activity Application User manual
 
-## About this manual
+- [Port Activity Application User manual](#port-activity-application-user-manual)
+  - [Introduction](#introduction)
+  - [Web user interface](#web-user-interface)
+    - [Basic actions](#basic-actions)
+      - [Login](#login)
+      - [Registration](#registration)
+      - [Reset password](#reset-password)
+      - [Navigation between sections and functions](#navigation-between-sections-and-functions)
+    - [Activity](#activity)
+      - [Activity view](#activity-view)
+        - [Pin vessel](#pin-vessel)
+        - [Add timestamp](#add-timestamp)
+        - [Send notification](#send-notification)
+        - [Send notification (STM)](#send-notification-stm)
+        - [Recommend time (STM)](#recommend-time-stm)
+      - [Vessels view (administrative view)](#vessels-view-administrative-view)
+        - [Hide / Show](#hide--show)
+        - [Show timestamps](#show-timestamps)
+        - [Attach orphans timestamps](#attach-orphans-timestamps)
+        - [Rebuild port calls](#rebuild-port-calls)
+        - [Delete timestamp](#delete-timestamp)
+        - [Show timestamp](#show-timestamp)
+        - [Edit timestamp start and end range](#edit-timestamp-start-and-end-range)
+      - [Inbound vessels view (STM)](#inbound-vessels-view-stm)
+      - [Other ports view (STM)](#other-ports-view-stm)
+      - [VIS vessels view (STM)](#vis-vessels-view-stm)
+        - [Poll VIS service](#poll-vis-service)
+        - [View VIS service configuration](#view-vis-service-configuration)
+        - [Find VIS service](#find-vis-service)
+        - [Notifications](#notifications)
+          - [Show VIS notifications from other systems](#show-vis-notifications-from-other-systems)
+          - [Sent TXT](#sent-txt)
+          - [Recv TXT](#recv-txt)
+          - [Sent VP](#sent-vp)
+          - [Recv VP](#recv-vp)
+          - [Send TXT](#send-txt)
+          - [Send RTA](#send-rta)
+        - [Port call timesheets](#port-call-timesheets)
+          - [View all timestamps collected to that port call (+ sign)](#view-all-timestamps-collected-to-that-port-call--sign)
+          - [View final timesheet](#view-final-timesheet)
+          - [You can manually close port call](#you-can-manually-close-port-call)
+          - [Re-scan port call](#re-scan-port-call)
+      - [Logistics](#logistics)
+      - [Notifications](#notifications-1)
+      - [Users, registration and registration codes](#users-registration-and-registration-codes)
+        - [Users](#users)
+          - [Add new user](#add-new-user)
+          - [Edit user data](#edit-user-data)
+          - [Delete user](#delete-user)
+        - [Registration codes](#registration-codes)
+          - [Add new codes](#add-new-codes)
+          - [Enable/disable code](#enabledisable-code)
+          - [Delete code](#delete-code)
+        - [Access control](#access-control)
+        - [String translations](#string-translations)
+      - [API](#api)
+        - [API keys](#api-keys)
+          - [Add API key](#add-api-key)
+          - [Enable/disable API key](#enabledisable-api-key)
+        - [API key priorities](#api-key-priorities)
+      - [Modules](#modules)
+      - [Queue](#queue)
+      - [Berths](#berths)
+        - [Add new berth](#add-new-berth)
+        - [Edit berth](#edit-berth)
+        - [Delete berth](#delete-berth)
+        - [Make berth nominatable](#make-berth-nominatable)
+      - [Queue - Just-In-Time-Arrival](#queue---just-in-time-arrival)
+        - [Nominations](#nominations)
+          - [Add new nomination](#add-new-nomination)
+          - [Edit nomination](#edit-nomination)
+          - [Delete nomination](#delete-nomination)
+          - [Admin nominations](#admin-nominations)
+          - [Slot requests](#slot-requests)
+        - [Berth reservations](#berth-reservations)
+      - [Just-In-Time Web Form](#just-in-time-web-form)
+        - [Empty form](#empty-form)
+        - [Example of filled form](#example-of-filled-form)
+        - [After send you will see confirmation](#after-send-you-will-see-confirmation)
+        - [And receive email with link to the slot received from port](#and-receive-email-with-link-to-the-slot-received-from-port)
+        - [Form view to confirm and specify JIT ETA to given RTA window](#form-view-to-confirm-and-specify-jit-eta-to-given-rta-window)
+        - [Filled JIT ETA and confirmation message](#filled-jit-eta-and-confirmation-message)
+        - [And email confirmation of slot](#and-email-confirmation-of-slot)
+      - [Sign out](#sign-out)
+  - [Mobile user interface](#mobile-user-interface)
+    - [Login, registration and forgot password](#login-registration-and-forgot-password)
+    - [Activity](#activity-1)
+      - [Pin/Unpin vessel](#pinunpin-vessel)
+      - [Ship information](#ship-information)
+      - [Add new timestamp](#add-new-timestamp)
+      - [Send notification](#send-notification-1)
+    - [Queue](#queue-1)
+    - [Logistics](#logistics-1)
 
 ## Introduction
 
@@ -8,13 +100,11 @@ This manual briefly describes different views and functionalities of Port Activi
 
 API of application can be integrated directly to third party application and data export can be exposed to other systems as well. API documentation however is not in the scope of this document.
 
-## Port Activity Application
-
-### Web
+## Web user interface
 
 Web application contains all functions of application. Some functions are only for administrative tasks and are used only when setting up application or more complex analysis of data is required to see the actual data behind simpler user interfaces that are delivered for basic users.
 
-#### Basic actions for all users
+### Basic actions
 
 #### Login
 
@@ -26,20 +116,19 @@ You need an username and password to be able to login into the application. Acco
 
 Registration for can be used to create account into the application. Use registration code to create account and fill all required information. It is not necessary to use email as username. However that you are allowed to reset your password in case of lost password you should use email as your username.
 
-TODO: image registration
 ![Registration with code](spia-registration-with-code.png)
 
 #### Reset password
 
 There is also link to reset password. If email is used as password link to reset password is sent to that email address.
 
-#### Basic menu to navigate between sections and functions
+#### Navigation between sections and functions
 
 After login activity view open by default. Clicking to the top right corner of page opens a menu that can be used to navigate between sections.
 
 ![Main menu](spia-menu-open.png)
 
-### Vessels and port call
+### Activity
 
 #### Activity view
 
@@ -47,12 +136,12 @@ After login activity view open by default. Clicking to the top right corner of p
 
 In activity view user see all active port calls. Port call is spliced into card and timeline. Card shows
 
-* status of the port call,
-* berth name (if in berth),
-* vessel name,
-* IMO number,
-* port where vessel is coming from and
-* port where vessel is going after leaving berth.
+- status of the port call,
+- berth name (if in berth),
+- vessel name,
+- IMO number,
+- port where vessel is coming from and
+- port where vessel is going after leaving berth.
 
 Depending of the status of port call card also shows estimated time of arriving (ETA) or estimated time of departure in the card. Below of the card is timestamps that are related to the port calls. First blue part indicates events that happen before the vessel in the port. White part indicates events that happens within the port. Lower blue part indicates events that happens after vessel is leaving port. The green line that goes through timeline indicates the state that is currently active within the port call.
 
@@ -64,23 +153,23 @@ When vessel is pinned you see it card as yellow and small pin on top corner of c
 
 ![Pinned vessel](spia-pin.png)
 
-###### Add timestamp
+##### Add timestamp
 
 User can add manually timestamp for a port call. However most cases adding timestamps manually is not recommended since all information should come from external datasources.
 
-###### Send notification
+##### Send notification
 
 User can send notification that relates to that specific vessel. Notification are only within this application and any one who sees it must have account wihtin this application.
 
-###### Send notification (STM)
+##### Send notification (STM)
 
 STM vessels are vessels that are connected with Port Activity Application with SeaSwim/VIS connector. When vessel is STM capable this functions is visible. When sending STM notification it means that that notification goes directly to ECDIS as a “text message” that is visible for ECDIS operator in the vessel.
 
-###### Recommend time (STM)
+##### Recommend time (STM)
 
 STM vessel can also be communicated by sharing voyage plan with recommended time of arrival (RTA) with the vessel. If vessel is known as STM vessel there is also small badge indicator in card “VIS”. That basically means that vessel is sharing its voyage plan with this application. See more STM information in chapter “VIS vessels”.
 
-##### Vessels view (administrative view)
+#### Vessels view (administrative view)
 
 Vessels views is administrative view to review all vessels within the system and review timestamps received. You can search vessels be name or IMO.
 
@@ -88,19 +177,19 @@ Vessels views is administrative view to review all vessels within the system and
 
 For each vessel there is functions
 
-###### Hide / Show
+##### Hide / Show
 
 This hides the vessel from activity timeline. Lets say that for some reasons there is coming data from tugs that are actively coming feed timestamps from data sources but it is not something that you want to show in timeline. Then you should hide that vessel. Hidden vessel can be set back to visible by clicking “Show”.
 
-###### Show timestamps
+##### Show timestamps
 
 Shows every timestamp for a vessel that is received. This view is mostly used review raw data that is in system to validate that port call has is correct data.
 
-###### Attach orphans timestamps
+##### Attach orphans timestamps
 
 Some rare cases there is situation that IMO related timestamps is not valid for any port call yet. This function allows to manually re-scan orphan timestamps to attach those into port call. This function should be used only rarely most cases only in the beginning of setup phase when application is set up to quickly test data sources
 
-###### Rebuild port calls
+##### Rebuild port calls
 
 This rebuild all port calls for a vessel. Should be used with caution only in case that port calls are known to be build wrong eg. in the situations of changed logic to build port call.
 
@@ -108,29 +197,29 @@ This rebuild all port calls for a vessel. Should be used with caution only in ca
 
 When viewing timestamps for a vessels there is more functions for a single timestamp. You can
 
-###### Delete timestamp
+##### Delete timestamp
 
 This removed timestamp from system. Let's say that there is false timestamp coming from any data source because of human error you should be able to remove timestamp manually.
 
-###### Show timestamp
+##### Show timestamp
 
 Show all details for a timestamp in raw format. Eg. in some situations it is informative for an administrator to see payload of a timestamps. Payload content affects how timestamp is treated within application and what extra information there is available. This is very useful while debugging timestamps and data sources that are connected to application.
 
-###### Edit timestamp start and end range
+##### Edit timestamp start and end range
 
 When clicked port call id you can edit port call time range. Time range defines what timestamps are included in a port call. You can change range manually but most cases you should not. If port call Master ID is set port call time range obeys port call ETA - ETD range from an external data source that provides ETA and ETD.
 
 ![Edit timestamps](spia-edit-timestamps.png)
 
-##### Inbound vessels view (STM)
+#### Inbound vessels view (STM)
 
 Inbound vessels view shows all vessels that are leaving to your port from any other port that has installed this application. Lets say that there is Port of Gävle and Port of Rauma and both have installed and registered Port activity application with SeaSWIM/VIS. If vessels leaves Rauma to Gävle then Port Activity Application of Rauma send information to Port Activity Application of Gävle about estimated time of departure (ETD). This is simple list view to show ETDs from any other ports.
 
-##### Other ports view (STM)
+#### Other ports view (STM)
 
 This view shows what other port activity applications, or ports, are communicating with this application. Be default all port to port communication is allowed yet you can disable messages from another port.
 
-##### VIS vessels view (STM)
+#### VIS vessels view (STM)
 
 This is administrative view for all VIS/STM vessel related communications. More about STM vessel can be read from [STM https://www.seatrafficmanagement.info/projects/stm-validation/
 
@@ -138,23 +227,23 @@ This is administrative view for all VIS/STM vessel related communications. More 
 
 Here is all known vessels and ports with STM capabilities listed. You can use SeaSWIM/VIS raw functions to communicate with vessel. Basic users should however use function in activity view for that communication. In this view administrator can
 
-###### Poll VIS service
+##### Poll VIS service
 
 Poll VIS service to fetch all latest data sent to this application
 
-###### View VIS service configuration
+##### View VIS service configuration
 
 See how VIS is configured for this application (how this application is connected and basically who you are in terms of VIS)
 
 ![VIS configuration](spia-vis-configuration.png)
 
-###### Find VIS service
+##### Find VIS service
 
 Find VIS services by IMO or service id
 
 ![VIS configuration](spia-vis-find-service.png)
 
-###### Notifications
+##### Notifications
 
 ###### Show VIS notifications from other systems
 
@@ -184,9 +273,8 @@ Sent TXT message to another STM/VIS service
 
 Send RTA for another STM/VIS vessel. Send RTA modifies received voyage plan (VP) so that planned route is within recommended time in a certain point near by port (usually outer port area). Voyage plan is send back to vessel. If new voyage plan is ok for vessel it can activate it. New voyage plan is send back to PAA and new timestamp is generated into system from that voyage plan. You can send also range for recommended time of arrival.
 
-###### Port call timesheets
+##### Port call timesheets
 
-TODO: image
 ![Timesheets](spia-port-call-timesheets.png)
 
 If port call timesheets view you can search vessels and see all port calls. For each port call you can
@@ -231,7 +319,7 @@ Notifications are simple text messages within application. Notification can be r
 
 ![Notifications](spia-notifications.png)
 
-#### Users, registration and
+#### Users, registration and registration codes
 
 ##### Users
 
@@ -324,7 +412,7 @@ API keys can be priorities on timestamp level. If multiple data sources post sam
 
 In modules view you can enable or disable modules that are available in system. This document covers only Activity Module, Logistics Module and Queue. Modules are build functionalities that enabled and disabled certain function in system. Eg. if logistics module is disabled it is not visible in UI and also API calls related to that module are disabled.
 
-##### Queue
+#### Queue
 
 Queue module allows giving predefined time slots for vessels that are coming into the port. All nominated vessels gets automatically best possible time slots that are available in the port. Procedure is
 
@@ -472,11 +560,11 @@ Now vessel has confirmed slot and has place in queue to berth.
 
 Signs user out from application. When using shared computer sign out should be always performed since session time to live is days.
 
-### Mobile
+## Mobile user interface
 
 Separate mobile application are available for each port that is implemented this application. While writing this there are Port Activity Gävle and Port Activity Rauma applications for ready to install from Apple Store for iOS mart phones and from Play Store for Android smart phones. After installation of application is ready to use. Mobile application have only limited subset on functionality compared to web application. For basic users mobile application is main platform to use. All basic functionality required for port actors are there. You can follow port activity, follow logistics and use notifications for communication.
 
-#### Login, registration and forgot password
+### Login, registration and forgot password
 
 Login, registration and forgot password work similar as in web version. Layout is just different.
 
@@ -514,7 +602,7 @@ Notification related to vessel can send in this view
 
 ![Mobile send notification](spia-mobile-send-notification.png)
 
-#### Queue
+### Queue
 
 ![Mobile queue](spia-mobile-queue.png)
 
@@ -531,7 +619,7 @@ Queue view show status of queue. For each slot request there is visible
 
 There is also status of slot request and berth name in list. Also statuses green “ok”, yellow “warning” and red “late” are displayed in this view to indicate current status of how vessel is meeting JIT ETA.
 
-#### Logistics
+### Logistics
 
 ![Mobile logistics](spia-mobile-logistics.png)
 
