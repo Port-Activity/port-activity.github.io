@@ -1,0 +1,3 @@
+# Architecture
+
+![](spia-architecture.png)

@@ -1,0 +1,1024 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<database name="paa_dev" schema="public" type="PostgreSQL - 12.2">
+   <sequences>
+      <sequence increment="1" name="api_key_id_seq" startValue="1"/>
+      <sequence increment="1" name="backup_role_id_seq" startValue="1"/>
+      <sequence increment="1" name="backup_role_user_id_seq" startValue="1"/>
+      <sequence increment="1" name="berth_id_seq" startValue="1"/>
+      <sequence increment="1" name="berth_reservation_berth_id_seq" startValue="1"/>
+      <sequence increment="1" name="berth_reservation_berth_reservation_type_id_seq" startValue="1"/>
+      <sequence increment="1" name="berth_reservation_id_seq" startValue="1"/>
+      <sequence increment="1" name="berth_reservation_type_id_seq" startValue="1"/>
+      <sequence increment="1" name="crud_log_id_seq" startValue="1"/>
+      <sequence increment="1" name="inbound_vessel_id_seq" startValue="1"/>
+      <sequence increment="1" name="logistics_timestamp_id_seq" startValue="1"/>
+      <sequence increment="1" name="migration_id_seq" startValue="1"/>
+      <sequence increment="1" name="nomination_berth_berth_id_seq" startValue="1"/>
+      <sequence increment="1" name="nomination_berth_id_seq" startValue="1"/>
+      <sequence increment="1" name="nomination_berth_nomination_id_seq" startValue="1"/>
+      <sequence increment="1" name="nomination_id_seq" startValue="1"/>
+      <sequence increment="1" name="nomination_nomination_status_id_seq" startValue="1"/>
+      <sequence increment="1" name="nomination_status_id_seq" startValue="1"/>
+      <sequence increment="1" name="notification_id_seq" startValue="1"/>
+      <sequence increment="1" name="permission_id_seq" startValue="1"/>
+      <sequence increment="1" name="pinned_vessel_id_seq" startValue="1"/>
+      <sequence increment="1" name="pinned_vessel_user_id_seq" startValue="1"/>
+      <sequence increment="1" name="port_call_id_seq" startValue="1"/>
+      <sequence increment="1" name="port_id_seq" startValue="1"/>
+      <sequence increment="1" name="pushnotificationtoken_id_seq" startValue="1"/>
+      <sequence increment="1" name="pushnotificationtoken_user_id_seq" startValue="1"/>
+      <sequence increment="1" name="registration_codes_id_seq" startValue="1"/>
+      <sequence increment="1" name="role_id_seq" startValue="1"/>
+      <sequence increment="1" name="role_permission_id_seq" startValue="1"/>
+      <sequence increment="1" name="role_permission_permission_id_seq" startValue="1"/>
+      <sequence increment="1" name="role_permission_role_id_seq" startValue="1"/>
+      <sequence increment="1" name="setting_id_seq" startValue="1"/>
+      <sequence increment="1" name="slot_reservation_id_seq" startValue="1"/>
+      <sequence increment="1" name="slot_reservation_slot_reservation_status_id_seq" startValue="1"/>
+      <sequence increment="1" name="slot_reservation_status_id_seq" startValue="1"/>
+      <sequence increment="1" name="timestamp_api_key_weight_api_key_id_seq" startValue="1"/>
+      <sequence increment="1" name="timestamp_api_key_weight_id_seq" startValue="1"/>
+      <sequence increment="1" name="timestamp_api_key_weight_timestamp_state_id_seq" startValue="1"/>
+      <sequence increment="1" name="timestamp_api_key_weight_timestamp_time_type_id_seq" startValue="1"/>
+      <sequence increment="1" name="timestamp_definition_id_seq" startValue="1"/>
+      <sequence increment="1" name="timestamp_definition_state_id_seq" startValue="1"/>
+      <sequence increment="1" name="timestamp_definition_time_type_id_seq" startValue="1"/>
+      <sequence increment="1" name="timestamp_id_seq" startValue="1"/>
+      <sequence increment="1" name="timestamp_state_id_seq" startValue="1"/>
+      <sequence increment="1" name="timestamp_state_id_seq1" startValue="1"/>
+      <sequence increment="1" name="timestamp_state_state_type_id_seq" startValue="1"/>
+      <sequence increment="1" name="timestamp_state_type_id_seq" startValue="1"/>
+      <sequence increment="1" name="timestamp_time_type_id_seq" startValue="1"/>
+      <sequence increment="1" name="timestamp_time_type_id_seq1" startValue="1"/>
+      <sequence increment="1" name="translations_id_seq" startValue="1"/>
+      <sequence increment="1" name="user_id_seq" startValue="1"/>
+      <sequence increment="1" name="user_role_id_seq" startValue="1"/>
+      <sequence increment="1" name="vessel_id_seq" startValue="1"/>
+      <sequence increment="1" name="vis_message_id_seq" startValue="1"/>
+      <sequence increment="1" name="vis_notification_id_seq" startValue="1"/>
+      <sequence increment="1" name="vis_rtz_state_id_seq" startValue="1"/>
+      <sequence increment="1" name="vis_vessel_id_seq" startValue="1"/>
+      <sequence increment="1" name="vis_voyage_plan_id_seq" startValue="1"/>
+      <sequence increment="1" name="vis_voyage_plan_rtz_state_seq" startValue="1"/>
+   </sequences>
+   <tables>
+      <table name="api_key" numRows="13" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('api_key_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5">
+            <child column="api_key_id" foreignKey="timestamp_api_key_weight_api_key_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="timestamp_api_key_weight"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="is_active" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="3" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="5" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="bound_user_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="api_key_bound_user_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="user"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="name" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="api_key_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="uniq_api_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="backup_role" numRows="4" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('backup_role_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="true" defaultValue="nextval('backup_role_user_id_seq'::regclass)" digits="0" id="2" name="user_id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <parent column="id" foreignKey="backup_role_user_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="user"/>
+         </column>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="3" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="5" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="backup_role_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="backup_role_name_user_id_key" unique="true">
+            <column ascending="true" name="name"/>
+            <column ascending="true" name="user_id"/>
+         </index>
+      </table>
+      <table name="berth" numRows="3" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('berth_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5">
+            <child column="berth_id" foreignKey="berth_reservation_berth_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="berth_reservation"/>
+            <child column="berth_id" foreignKey="nomination_berth_berth_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="nomination_berth"/>
+            <child column="berth_id" foreignKey="slot_reservation_berth_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="slot_reservation"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="code" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="3" name="nominatable" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="4" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="6" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="berth_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="berth_name_code_nominatable_idx" unique="false">
+            <column ascending="true" name="name"/>
+            <column ascending="true" name="code"/>
+            <column ascending="true" name="nominatable"/>
+         </index>
+         <index name="index_lower_code" unique="false"/>
+         <index name="index_lower_name" unique="false"/>
+      </table>
+      <table name="berth_reservation" numRows="5" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('berth_reservation_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
+         <column autoUpdated="true" defaultValue="nextval('berth_reservation_berth_id_seq'::regclass)" digits="0" id="1" name="berth_id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5">
+            <parent column="id" foreignKey="berth_reservation_berth_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="berth"/>
+         </column>
+         <column autoUpdated="true" defaultValue="nextval('berth_reservation_berth_reservation_type_id_seq'::regclass)" digits="0" id="2" name="berth_reservation_type_id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <parent column="id" foreignKey="berth_reservation_berth_reservation_type_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="berth_reservation_type"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="3" name="reservation_start" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="4" name="reservation_end" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="slot_reservation_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="berth_reservation_slot_reservation_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="slot_reservation"/>
+         </column>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="6" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="8" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="berth_reservation_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="berth_reservation_berth_id_berth_reservation_type_id_reservatio" unique="false">
+            <column ascending="true" name="berth_id"/>
+            <column ascending="true" name="berth_reservation_type_id"/>
+            <column ascending="true" name="reservation_start"/>
+            <column ascending="true" name="reservation_end"/>
+            <column ascending="true" name="slot_reservation_id"/>
+         </index>
+      </table>
+      <table name="berth_reservation_type" numRows="2" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('berth_reservation_type_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="berth_reservation_type_id" foreignKey="berth_reservation_berth_reservation_type_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="berth_reservation"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="readable_name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="3" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="5" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="berth_reservation_type_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="berth_reservation_type_name_readable_name_idx" unique="false">
+            <column ascending="true" name="name"/>
+            <column ascending="true" name="readable_name"/>
+         </index>
+      </table>
+      <table name="crud_log" numRows="559" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('crud_log_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="table_name" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="data" nullable="true" remarks="" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="3" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="5" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="crud_log_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="inbound_vessel" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('inbound_vessel_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="1" name="time" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="imo" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="vessel_name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="from_service_id" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="5" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="7" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="''::text" digits="0" id="9" name="from_service_name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="inbound_vessel_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="inbound_vessel_from_service_name" unique="false">
+            <column ascending="true" name="from_service_name"/>
+         </index>
+         <index name="inbound_vessel_time_imo_vessel_name_from_service_id_idx" unique="false">
+            <column ascending="true" name="time"/>
+            <column ascending="true" name="imo"/>
+            <column ascending="true" name="vessel_name"/>
+            <column ascending="true" name="from_service_id"/>
+         </index>
+      </table>
+      <table name="logistics_timestamp" numRows="18" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('logistics_timestamp_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="1" name="time" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="checkpoint" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="direction" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="payload" nullable="true" remarks="" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="5" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="7" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="logistics_timestamp_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="logistics_timestamp_expr_idx" unique="false"/>
+         <index name="logistics_timestamp_expr_idx1" unique="false"/>
+         <index name="logistics_timestamp_time_idx" unique="false">
+            <column ascending="true" name="time"/>
+         </index>
+      </table>
+      <table name="migration" numRows="104" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('migration_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="2" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="migration_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="uniq_name" unique="true">
+            <column ascending="true" name="name"/>
+         </index>
+      </table>
+      <table name="nomination" numRows="6" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('nomination_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5">
+            <child column="nomination_id" foreignKey="nomination_berth_nomination_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="nomination_berth"/>
+            <child column="nomination_id" foreignKey="slot_reservation_nomination_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="slot_reservation"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="company_name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="email" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="imo" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="vessel_name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="true" defaultValue="nextval('nomination_nomination_status_id_seq'::regclass)" digits="0" id="5" name="nomination_status_id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <parent column="id" foreignKey="nomination_nomination_status_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="nomination_status"/>
+         </column>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="6" name="window_start" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="7" name="window_end" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="8" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="10" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="nomination_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="index_nomination_lower_vessel_name" unique="false"/>
+         <index name="nomination_company_name_email_imo_vessel_name_nomination_status" unique="false">
+            <column ascending="true" name="company_name"/>
+            <column ascending="true" name="email"/>
+            <column ascending="true" name="imo"/>
+            <column ascending="true" name="vessel_name"/>
+            <column ascending="true" name="nomination_status_id"/>
+            <column ascending="true" name="window_start"/>
+            <column ascending="true" name="window_end"/>
+            <column ascending="true" name="created_by"/>
+         </index>
+      </table>
+      <table name="nomination_berth" numRows="9" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('nomination_berth_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
+         <column autoUpdated="true" defaultValue="nextval('nomination_berth_nomination_id_seq'::regclass)" digits="0" id="1" name="nomination_id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5">
+            <parent column="id" foreignKey="nomination_berth_nomination_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="nomination"/>
+         </column>
+         <column autoUpdated="true" defaultValue="nextval('nomination_berth_berth_id_seq'::regclass)" digits="0" id="2" name="berth_id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5">
+            <parent column="id" foreignKey="nomination_berth_berth_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="berth"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="berth_priority" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="4" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="6" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="nomination_berth_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="nomination_berth_nomination_id_berth_id_berth_priority_idx" unique="false">
+            <column ascending="true" name="nomination_id"/>
+            <column ascending="true" name="berth_id"/>
+            <column ascending="true" name="berth_priority"/>
+         </index>
+         <index name="uniq_nomination_berth" unique="true">
+            <column ascending="true" name="nomination_id"/>
+            <column ascending="true" name="berth_id"/>
+         </index>
+      </table>
+      <table name="nomination_status" numRows="3" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('nomination_status_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="nomination_status_id" foreignKey="nomination_nomination_status_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="nomination"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="readable_name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="3" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="5" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="nomination_status_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="nomination_status_name_readable_name_idx" unique="false">
+            <column ascending="true" name="name"/>
+            <column ascending="true" name="readable_name"/>
+         </index>
+      </table>
+      <table name="notification" numRows="63" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('notification_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="type" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="message" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ship_imo" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="4" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="6" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="notification_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="permission" numRows="32" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('permission_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="permission_id" foreignKey="role_permission_permission_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="role_permission"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="readable_name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="3" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="5" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="permission_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="permission_name_idx" unique="false">
+            <column ascending="true" name="name"/>
+         </index>
+      </table>
+      <table name="pinned_vessel" numRows="14" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('pinned_vessel_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
+         <column autoUpdated="true" defaultValue="nextval('pinned_vessel_user_id_seq'::regclass)" digits="0" id="1" name="user_id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <parent column="id" foreignKey="pinned_vessel_user_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="user"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="vessel_ids" nullable="true" remarks="" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="3" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="5" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="pinned_vessel_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="uniq_pinned_vessel" unique="true">
+            <column ascending="true" name="user_id"/>
+         </index>
+      </table>
+      <table name="port" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('port_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="service_id" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="3" name="whitelist_in" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="4" name="whitelist_out" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="locodes" nullable="true" remarks="" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="6" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="8" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="port_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="port_name_service_id_whitelist_in_whitelist_out_idx" unique="false">
+            <column ascending="true" name="name"/>
+            <column ascending="true" name="service_id"/>
+            <column ascending="true" name="whitelist_in"/>
+            <column ascending="true" name="whitelist_out"/>
+         </index>
+      </table>
+      <table name="port_call" numRows="11" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('port_call_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5">
+            <child column="port_call_id" foreignKey="slot_reservation_port_call_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="slot_reservation"/>
+            <child column="port_call_id" foreignKey="timestamp_port_call_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="timestamp"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="imo" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="imo" foreignKey="port_call_imo_fkey" implied="false" onDeleteCascade="false" schema="public" table="vessel"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="vessel_name" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="status" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="from_port" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="to_port" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="next_port" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="mmsi" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="call_sign" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="9" name="loa" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="10" name="beam" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="11" name="draft" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="12" name="net_weight" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="13" name="gross_weight" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="nationality" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="15" name="first_eta" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="16" name="first_etd" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="17" name="current_eta" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="18" name="current_etd" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="19" name="rta" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="20" name="current_pta" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="21" name="current_ptd" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="22" name="ata" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="23" name="atd" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="24" name="is_vis" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="25" name="inbound_piloting_status" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="26" name="outbound_piloting_status" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="27" name="cargo_operations_status" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="28" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="29" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="30" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="31" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="32" name="next_event_title" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="33" name="next_event_ts" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="1" digits="0" id="34" name="weight" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="35" name="berth" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="36" name="eta_form_email" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="37" name="live_eta" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="38" name="live_eta_details" nullable="true" remarks="" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="39" name="rta_details" nullable="true" remarks="" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="40" name="berth_name" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="41" name="voyage_plan_request" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="42" name="slot_reservation_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="port_call_slot_reservation_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="slot_reservation"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="43" name="slot_reservation_status" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="44" name="rta_window_start" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="45" name="rta_window_end" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="46" name="laytime" nullable="true" remarks="" size="49" type="interval" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="47" name="master_id" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="48" name="master_start" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="49" name="master_end" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="50" name="master_manual" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="port_call_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="port_call_ata_idx" unique="false">
+            <column ascending="true" name="ata"/>
+         </index>
+         <index name="port_call_atd_idx" unique="false">
+            <column ascending="true" name="atd"/>
+         </index>
+         <index name="port_call_current_eta_idx" unique="false">
+            <column ascending="true" name="current_eta"/>
+         </index>
+         <index name="port_call_current_etd_idx" unique="false">
+            <column ascending="true" name="current_etd"/>
+         </index>
+         <index name="port_call_current_pta_idx" unique="false">
+            <column ascending="true" name="current_pta"/>
+         </index>
+         <index name="port_call_current_ptd_idx" unique="false">
+            <column ascending="true" name="current_ptd"/>
+         </index>
+         <index name="port_call_first_eta_idx" unique="false">
+            <column ascending="true" name="first_eta"/>
+         </index>
+         <index name="port_call_first_etd_idx" unique="false">
+            <column ascending="true" name="first_etd"/>
+         </index>
+         <index name="port_call_from_port_idx" unique="false">
+            <column ascending="true" name="from_port"/>
+         </index>
+         <index name="port_call_imo_idx" unique="false">
+            <column ascending="true" name="imo"/>
+         </index>
+         <index name="port_call_nationality_idx" unique="false">
+            <column ascending="true" name="nationality"/>
+         </index>
+         <index name="port_call_rta_idx" unique="false">
+            <column ascending="true" name="rta"/>
+         </index>
+         <index name="port_call_status_idx" unique="false">
+            <column ascending="true" name="status"/>
+         </index>
+         <index name="port_call_to_port_idx" unique="false">
+            <column ascending="true" name="to_port"/>
+         </index>
+      </table>
+      <table name="push_notification_token" numRows="2" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('pushnotificationtoken_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
+         <column autoUpdated="true" defaultValue="nextval('pushnotificationtoken_user_id_seq'::regclass)" digits="0" id="1" name="user_id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <parent column="id" foreignKey="pushnotificationtoken_user_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="user"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="installation_id" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="platform" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="token" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="5" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="7" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="push_notification_token_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="push_notification_token_installation_id_platform_key" unique="true">
+            <column ascending="true" name="installation_id"/>
+            <column ascending="true" name="platform"/>
+         </index>
+      </table>
+      <table name="registration_codes" numRows="5" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('registration_codes_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5">
+            <child column="registration_code_id" foreignKey="user_registration_code_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="user"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="code" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="enabled" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="role" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="4" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="6" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="''::text" digits="0" id="8" name="description" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="registration_codes_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="uniq_registration_codes" unique="true">
+            <column ascending="true" name="code"/>
+         </index>
+      </table>
+      <table name="role" numRows="6" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('role_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="role_id" foreignKey="role_permission_role_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="role_permission"/>
+            <child column="role_id" foreignKey="public_role_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="user"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="readable_name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="3" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="5" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="role_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="role_name_idx" unique="false">
+            <column ascending="true" name="name"/>
+         </index>
+      </table>
+      <table name="role_permission" numRows="75" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('role_permission_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="true" defaultValue="nextval('role_permission_role_id_seq'::regclass)" digits="0" id="1" name="role_id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <parent column="id" foreignKey="role_permission_role_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="role"/>
+         </column>
+         <column autoUpdated="true" defaultValue="nextval('role_permission_permission_id_seq'::regclass)" digits="0" id="2" name="permission_id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <parent column="id" foreignKey="role_permission_permission_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="permission"/>
+         </column>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="3" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="5" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="role_permission_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="role_permission_role_id_permission_id_idx" unique="false">
+            <column ascending="true" name="role_id"/>
+            <column ascending="true" name="permission_id"/>
+         </index>
+         <index name="uniq_role_permission" unique="true">
+            <column ascending="true" name="role_id"/>
+            <column ascending="true" name="permission_id"/>
+         </index>
+      </table>
+      <table name="setting" numRows="10" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('setting_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="3" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="5" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="setting_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="slot_reservation" numRows="10" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('slot_reservation_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5">
+            <child column="slot_reservation_id" foreignKey="berth_reservation_slot_reservation_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="berth_reservation"/>
+            <child column="slot_reservation_id" foreignKey="port_call_slot_reservation_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="port_call"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nomination_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="slot_reservation_nomination_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="nomination"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="berth_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="slot_reservation_berth_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="berth"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="email" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="imo" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="vessel_name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="6" name="loa" nullable="false" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="7" name="beam" nullable="false" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="8" name="draft" nullable="false" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="9" name="laytime" nullable="false" remarks="" size="49" type="interval" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="10" name="eta" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="11" name="rta_window_start" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="12" name="rta_window_end" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="13" name="jit_eta" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="true" defaultValue="nextval('slot_reservation_slot_reservation_status_id_seq'::regclass)" digits="0" id="14" name="slot_reservation_status_id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <parent column="id" foreignKey="slot_reservation_slot_reservation_status_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="slot_reservation_status"/>
+         </column>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="15" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="17" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="18" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="port_call_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="slot_reservation_port_call_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="port_call"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="20" name="jit_eta_discrepancy_time" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'green'::text" digits="0" id="21" name="jit_eta_alert_state" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="slot_reservation_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="slot_reservation_nomination_id_berth_id_email_imo_vessel_name_e" unique="false">
+            <column ascending="true" name="nomination_id"/>
+            <column ascending="true" name="berth_id"/>
+            <column ascending="true" name="email"/>
+            <column ascending="true" name="imo"/>
+            <column ascending="true" name="vessel_name"/>
+            <column ascending="true" name="eta"/>
+            <column ascending="true" name="rta_window_start"/>
+            <column ascending="true" name="rta_window_end"/>
+            <column ascending="true" name="jit_eta"/>
+            <column ascending="true" name="slot_reservation_status_id"/>
+         </index>
+      </table>
+      <table name="slot_reservation_status" numRows="9" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('slot_reservation_status_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="slot_reservation_status_id" foreignKey="slot_reservation_slot_reservation_status_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="slot_reservation"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="readable_name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="3" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="5" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="slot_reservation_status_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="slot_reservation_status_name_readable_name_idx" unique="false">
+            <column ascending="true" name="name"/>
+            <column ascending="true" name="readable_name"/>
+         </index>
+      </table>
+      <table name="timestamp" numRows="143" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('timestamp_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="imo" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="vessel_name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="3" name="time" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="payload" nullable="true" remarks="" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="5" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="7" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="true" defaultValue="nextval('timestamp_time_type_id_seq1'::regclass)" digits="0" id="9" name="time_type_id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <parent column="id" foreignKey="timestamp_time_type_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="timestamp_time_type"/>
+         </column>
+         <column autoUpdated="true" defaultValue="nextval('timestamp_state_id_seq1'::regclass)" digits="0" id="10" name="state_id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <parent column="id" foreignKey="timestamp_state_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="timestamp_state"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="port_call_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="timestamp_port_call_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="port_call"/>
+         </column>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="12" name="is_trash" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="13" name="weight" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="timestamp_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="timestamp_is_trash" unique="false">
+            <column ascending="true" name="is_trash"/>
+         </index>
+      </table>
+      <table name="timestamp_api_key_weight" numRows="4" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('timestamp_api_key_weight_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
+         <column autoUpdated="true" defaultValue="nextval('timestamp_api_key_weight_timestamp_time_type_id_seq'::regclass)" digits="0" id="1" name="timestamp_time_type_id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <parent column="id" foreignKey="timestamp_api_key_weight_timestamp_time_type_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="timestamp_time_type"/>
+         </column>
+         <column autoUpdated="true" defaultValue="nextval('timestamp_api_key_weight_timestamp_state_id_seq'::regclass)" digits="0" id="2" name="timestamp_state_id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <parent column="id" foreignKey="timestamp_api_key_weight_timestamp_state_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="timestamp_state"/>
+         </column>
+         <column autoUpdated="true" defaultValue="nextval('timestamp_api_key_weight_api_key_id_seq'::regclass)" digits="0" id="3" name="api_key_id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5">
+            <parent column="id" foreignKey="timestamp_api_key_weight_api_key_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="api_key"/>
+         </column>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="4" name="weight" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="5" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="7" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="timestamp_api_key_weight_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="timestamp_api_key_weight_timestamp_time_type_id_timestamp_s_key" unique="true">
+            <column ascending="true" name="timestamp_time_type_id"/>
+            <column ascending="true" name="timestamp_state_id"/>
+            <column ascending="true" name="api_key_id"/>
+         </index>
+         <index name="timestamp_api_key_weight_timestamp_time_type_id_timestamp_state" unique="false">
+            <column ascending="true" name="timestamp_time_type_id"/>
+            <column ascending="true" name="timestamp_state_id"/>
+            <column ascending="true" name="api_key_id"/>
+            <column ascending="true" name="weight"/>
+         </index>
+      </table>
+      <table name="timestamp_definition" numRows="18" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('timestamp_definition_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="true" defaultValue="nextval('timestamp_definition_time_type_id_seq'::regclass)" digits="0" id="2" name="time_type_id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <parent column="id" foreignKey="timestamp_definition_time_type_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="timestamp_time_type"/>
+         </column>
+         <column autoUpdated="true" defaultValue="nextval('timestamp_definition_state_id_seq'::regclass)" digits="0" id="3" name="state_id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <parent column="id" foreignKey="timestamp_definition_state_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="timestamp_state"/>
+         </column>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="4" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="6" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="timestamp_definition_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="uniq_time_type_state" unique="true">
+            <column ascending="true" name="time_type_id"/>
+            <column ascending="true" name="state_id"/>
+         </index>
+      </table>
+      <table name="timestamp_state" numRows="268" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('timestamp_state_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="state_id" foreignKey="timestamp_state_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="timestamp"/>
+            <child column="timestamp_state_id" foreignKey="timestamp_api_key_weight_timestamp_state_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="timestamp_api_key_weight"/>
+            <child column="state_id" foreignKey="timestamp_definition_state_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="timestamp_definition"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="true" defaultValue="nextval('timestamp_state_state_type_id_seq'::regclass)" digits="0" id="2" name="state_type_id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <parent column="id" foreignKey="timestamp_state_state_type_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="timestamp_state_type"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="description" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="4" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="6" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="timestamp_state_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="timestamp_state_type" numRows="3" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('timestamp_state_type_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="state_type_id" foreignKey="timestamp_state_state_type_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="timestamp_state"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="2" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="4" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="timestamp_state_type_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="timestamp_time_type" numRows="5" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('timestamp_time_type_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="time_type_id" foreignKey="timestamp_time_type_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="timestamp"/>
+            <child column="timestamp_time_type_id" foreignKey="timestamp_api_key_weight_timestamp_time_type_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="timestamp_api_key_weight"/>
+            <child column="time_type_id" foreignKey="timestamp_definition_time_type_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="timestamp_definition"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="2" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="4" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="timestamp_time_type_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="translation" numRows="423" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('translations_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="namespace" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="language" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="key" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="value" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="5" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="7" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="translations_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="uniq_translations" unique="true">
+            <column ascending="true" name="namespace"/>
+            <column ascending="true" name="language"/>
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="user" numRows="154" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('user_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="bound_user_id" foreignKey="api_key_bound_user_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="api_key"/>
+            <child column="user_id" foreignKey="backup_role_user_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="backup_role"/>
+            <child column="user_id" foreignKey="pinned_vessel_user_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="pinned_vessel"/>
+            <child column="user_id" foreignKey="pushnotificationtoken_user_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="push_notification_token"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="email" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="password_hash" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="first_name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="last_name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="5" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="7" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="true" defaultValue="nextval('user_role_id_seq'::regclass)" digits="0" id="9" name="role_id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <parent column="id" foreignKey="public_role_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="role"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="10" name="last_login_time" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="last_login_data" nullable="true" remarks="" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="'active'::text" digits="0" id="12" name="status" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="13" name="last_session_time" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="registration_code_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="user_registration_code_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="registration_codes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="time_zone" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="user_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="index_lower_email" unique="true"/>
+         <index name="index_lower_first_name" unique="false"/>
+         <index name="index_lower_last_name" unique="false"/>
+         <index name="last_login_time_idx" unique="false">
+            <column ascending="true" name="last_login_time"/>
+         </index>
+         <index name="last_session_time_idx" unique="false">
+            <column ascending="true" name="last_session_time"/>
+            <column ascending="true" name="registration_code_id"/>
+         </index>
+         <index name="uniq_email" unique="true">
+            <column ascending="true" name="email"/>
+         </index>
+         <index name="user_status_index" unique="false">
+            <column ascending="true" name="status"/>
+         </index>
+      </table>
+      <table name="vessel" numRows="128" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('vessel_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="imo" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="imo" foreignKey="port_call_imo_fkey" implied="false" onDeleteCascade="false" schema="public" table="port_call"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="vessel_name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="3" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="5" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="7" name="visible" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="vessel_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="index_lower_vessel_name" unique="false"/>
+         <index name="vessel_imo_vessel_name_idx" unique="false">
+            <column ascending="true" name="imo"/>
+            <column ascending="true" name="vessel_name"/>
+         </index>
+         <index name="vessel_unique_imo" unique="true">
+            <column ascending="true" name="imo"/>
+         </index>
+         <index name="vessel_visible" unique="false">
+            <column ascending="true" name="visible"/>
+         </index>
+      </table>
+      <table name="vis_message" numRows="6" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('vis_message_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="1" name="time" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="from_service_id" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="to_service_id" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="message_id" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="message_type" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="payload" nullable="true" remarks="" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="7" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="9" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="11" name="ack" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="12" name="operational_ack" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="vis_message_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="vis_message_time_from_to_service_id_message_id_type_idx" unique="false">
+            <column ascending="true" name="time"/>
+            <column ascending="true" name="from_service_id"/>
+            <column ascending="true" name="to_service_id"/>
+            <column ascending="true" name="message_id"/>
+            <column ascending="true" name="message_type"/>
+         </index>
+      </table>
+      <table name="vis_notification" numRows="9" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('vis_notification_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="1" name="time" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="from_service_id" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="payload" nullable="true" remarks="" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="4" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="6" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="message_id" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="message_type" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="notification_type" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="subject" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="vis_notification_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="vis_notification_message_id_idx" unique="false">
+            <column ascending="true" name="message_id"/>
+         </index>
+         <index name="vis_notification_message_type_idx" unique="false">
+            <column ascending="true" name="message_type"/>
+         </index>
+         <index name="vis_notification_notification_type_idx" unique="false">
+            <column ascending="true" name="notification_type"/>
+         </index>
+         <index name="vis_notification_time_from_service_id_idx" unique="false">
+            <column ascending="true" name="time"/>
+            <column ascending="true" name="from_service_id"/>
+         </index>
+      </table>
+      <table name="vis_rtz_state" numRows="6" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('vis_rtz_state_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="rtz_state" foreignKey="vis_voyage_plan_rtz_state_fkey" implied="false" onDeleteCascade="false" schema="public" table="vis_voyage_plan"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="2" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="4" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="vis_rtz_state_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="vis_vessel" numRows="5" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('vis_vessel_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="imo" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="vessel_name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="service_id" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="service_url" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="5" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="7" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="vis_vessel_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="vis_vessel_imo_vessel_name_service_id_idx" unique="false">
+            <column ascending="true" name="imo"/>
+            <column ascending="true" name="vessel_name"/>
+            <column ascending="true" name="service_id"/>
+         </index>
+      </table>
+      <table name="vis_voyage_plan" numRows="14" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('vis_voyage_plan_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="bigserial" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="1" name="time" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="from_service_id" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="to_service_id" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="message_id" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="message_type" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="true" defaultValue="nextval('vis_voyage_plan_rtz_state_seq'::regclass)" digits="0" id="6" name="rtz_state" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <parent column="id" foreignKey="vis_voyage_plan_rtz_state_fkey" implied="false" onDeleteCascade="false" schema="public" table="vis_rtz_state"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="rtz_parse_results" nullable="true" remarks="" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="payload" nullable="true" remarks="" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="9" name="created_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="created_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="6" id="11" name="modified_at" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="modified_by" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="13" name="ack" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="14" name="operational_ack" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="vis_voyage_plan_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="vis_voyage_plan_time_from_to_service_id_message_id_type_idx" unique="false">
+            <column ascending="true" name="time"/>
+            <column ascending="true" name="from_service_id"/>
+            <column ascending="true" name="to_service_id"/>
+            <column ascending="true" name="message_id"/>
+            <column ascending="true" name="message_type"/>
+         </index>
+      </table>
+   </tables>
+</database>
