@@ -1,6 +1,6 @@
 # Information model
 
-See [Schemaspy documents](shemaspy)
+See [Schemaspy documents](schemaspy)
 
 ## To generate schemaspy documents do something like this
 ```bash
