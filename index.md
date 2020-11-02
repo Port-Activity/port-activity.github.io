@@ -5,7 +5,7 @@
 1. [User Manual](/user-manual)
 1. [Architecture](/architecture)
 1. [Information model](/information-model)
-1. [Installation documents](/installation-documents)
+1. [Installation documents](/installation-descriptions)
 1. [API documentation](/api-documentation)
 1. [Sequence diagrams](/sequence-diagrams)
 
