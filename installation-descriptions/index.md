@@ -114,9 +114,9 @@ This nginx configuration could be used also as proxy for other services when run
 
 Follow instructions in [https://github.com/port-activity/mobile](https://github.com/port-activity/mobile).
 
-Mobile application is build with [React Native](https://reactnative.dev). You need to install (Expo)[https://expo.io] to run application on local environment. The beauty of React Native is that you can build iOS and Android version with same code base without even opening XCode or Android Studio. Drawback is that you need make some compromises and can't use all the fanciest platform specific features.
+Mobile application is build with [React Native](https://reactnative.dev). You need to install [Expo](https://expo.io) to run application on local environment. The beauty of React Native is that you can build iOS and Android version with same code base without even opening XCode or Android Studio. Drawback is that you need make some compromises and can't use all the fanciest platform specific features.
 
-When building deployment packages you need create account to Expo. If you need team features you have subscribe Expos Priority plan: https://expo.io/developer-services
+When building deployment packages you need create account to Expo. If you need team features you have subscribe [Expos Priority plan](https://expo.io/developer-services).
 
 Uploading application to Apple Store and Google Play store could be automated on some level with Expo. However setting up accounts to both stores is manual process. Also uploading deployment package to stores is more convenient to do manually.
 
